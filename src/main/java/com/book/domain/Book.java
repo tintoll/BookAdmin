@@ -1,5 +1,7 @@
 package com.book.domain;
 
+import com.book.Reader;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,12 +16,16 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;    // 엔티티 유일성을 식별하고 자동으로 값을 제공하는 필드로 지정
 
-    private String reader;
     private String isbn;
     private String title;
     private String author;
     private String description;
 
+    private Reader reader;
+
+    public void setReader(Reader reader) {
+        this.reader = reader;
+    }
 
     public Long getId() {
         return id;
@@ -29,13 +35,7 @@ public class Book {
         this.id = id;
     }
 
-    public String getReader() {
-        return reader;
-    }
 
-    public void setReader(String reader) {
-        this.reader = reader;
-    }
 
     public String getIsbn() {
         return isbn;
